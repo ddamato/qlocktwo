@@ -1,0 +1,70 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#3f4c6b+0,3f4c6b+100;Blue+Grey+Flat */
+background: #3f4c6b; /* Old browsers */
+background: -moz-linear-gradient(45deg,  #3f4c6b 0%, #3f4c6b 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(45deg,  #3f4c6b 0%,#3f4c6b 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(45deg,  #3f4c6b 0%,#3f4c6b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3f4c6b', endColorstr='#3f4c6b',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+#grid {
+  --color: 13, 13, 13;
+  --size: 1.5rem;
+  --spacing: 2;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  font-size: var(--size);
+  grid-template-columns: repeat(11, calc(var(--size) * var(--spacing)));
+  grid-template-rows: repeat(10, calc(var(--size) * var(--spacing)));
+  place-items: center;
+  place-content: center;
+  min-height: 100vh;
+  cursor: pointer;
+}
+
+li {
+  background-color: rgb(var(--color));
+  color: transparent;
+  -webkit-background-clip: text;
+     -moz-background-clip: text;
+          background-clip: text;
+  text-shadow: 1px 1px 0px rgba(255,255,255,0.01);
+  transition: .3s ease;
+}
+
+#grid:not(.show-seconds) .on-clock,
+#grid.show-seconds .on-second {
+  --color: 217, 217, 217;
+  --alpha: .7;
+  text-shadow: 
+      0 0 10px rgba(var(--color), var(--alpha)),
+      0 0 20px rgba(var(--color), var(--alpha)),
+      0 0 30px rgba(var(--color), var(--alpha));
+  animation: neon 2s ease-in-out infinite alternate;
+}
+
+@keyframes neon {
+  from {
+    text-shadow: 
+      0 0 5px rgba(var(--color), var(--alpha)),
+      0 0 10px rgba(var(--color), var(--alpha)),
+      0 0 15px rgba(var(--color), var(--alpha));
+  }
+  to {
+    text-shadow: 
+      0 0 10px rgba(var(--color), var(--alpha)),
+      0 0 20px rgba(var(--color), var(--alpha)),
+      0 0 30px rgba(var(--color), var(--alpha));
+  }
+}
+
