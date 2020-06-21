@@ -8,6 +8,12 @@ const CLOCK = {
   PM: [108, 109],
 }
 
+const DIRECTION = {
+  ZERO: [],
+  PAST: [37, 38, 39, 40],
+  TO: [42, 43],
+}
+
 const MINUTES = {
   FIVE: [28, 29, 30, 31],
   TEN: [33, 34, 35],
@@ -15,12 +21,6 @@ const MINUTES = {
   TWENTY: [22, 23, 24, 25, 26, 27],
   TWENTYFIVE: [22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
   HALF: [6, 7, 8, 9],
-}
-
-const DIRECTION = {
-  ZERO: [],
-  PAST: [37, 38, 39, 40],
-  TO: [42, 43],
 }
 
 const HOURS = {
@@ -92,11 +92,11 @@ function convertTime([ hours, minutes, seconds, ampm ]) {
     direction = 'ZERO';
   }
 
-  const humanHour = [null, 'ONE', 'TWO', 'THREE', 'FOUR', 'FIVE', 'SIX', 'SEVEN', 'EIGHT', 'NINE', 'TEN', 'ELEVEN', 'TWELVE'][hour];
-  const humanMinute = [null, 'FIVE', 'TEN', 'A_QUARTER', 'TWENTY', 'TWENTYFIVE', 'HALF'][minute5 / 5];
+  const humanHour = ['ONE', 'TWO', 'THREE', 'FOUR', 'FIVE', 'SIX', 'SEVEN', 'EIGHT', 'NINE', 'TEN', 'ELEVEN', 'TWELVE'][hour - 1];
+  const humanMinute = ['FIVE', 'TEN', 'A_QUARTER', 'TWENTY', 'TWENTYFIVE', 'HALF'][(minute5 / 5) - 1];
   const [firstDigit, secondDigit] = seconds.split('').map(Number);
   return {
-    human: [].concat(CLOCK['IT'], CLOCK['IS'], MINUTES[humanMinute], DIRECTION[direction], HOURS[humanHour], CLOCK['O_CLOCK'], CLOCK[ampm]),
+    human: [].concat(CLOCK.IT, CLOCK.IS, MINUTES[humanMinute], DIRECTION[direction], HOURS[humanHour], CLOCK.O_CLOCK, CLOCK[ampm]),
     seconds: [].concat(FIRST_DIGIT[firstDigit], SECOND_DIGIT[secondDigit]),
   }
 }

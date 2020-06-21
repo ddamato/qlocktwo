@@ -17,15 +17,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3f4c6b', end
 
 #grid {
   --color: 13, 13, 13;
-  --size: 1.5rem;
-  --spacing: 2;
+  --size: 4vmin;
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
   font-size: var(--size);
-  grid-template-columns: repeat(11, calc(var(--size) * var(--spacing)));
-  grid-template-rows: repeat(10, calc(var(--size) * var(--spacing)));
+  grid-template-columns: repeat(11, calc(100vmin/15));
+  grid-template-rows: repeat(10, calc(100vmin/15));
   place-items: center;
   place-content: center;
   min-height: 100vh;
