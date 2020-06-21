@@ -35,7 +35,7 @@ li {
      -moz-background-clip: text;
           background-clip: text;
   text-shadow: 1px 1px 1px rgba(255,255,255,0.1);
-  transition: .3s ease;
+  transition: .1s ease;
 }
 
 #grid:not(.show-seconds) .on-clock,
